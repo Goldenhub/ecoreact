@@ -13,7 +13,7 @@ class ReacttoolController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): array|string
+    public function index()
     {
         return Reacttool::all();
     }
@@ -27,8 +27,10 @@ class ReacttoolController extends Controller
     {
         // get tools by category
         if ($category === 'all') {
+            // dd(new ReacttoolController)->index();
             return (new ReacttoolController)->index();
         } else {
+            // dd(Reacttool::where('category', $category)->get());
             return Reacttool::where('category', $category)->get();
         }
     }
@@ -63,10 +65,9 @@ class ReacttoolController extends Controller
             'description' => 'required|string|max:255',
         ]);
 
-
         $request->user()->reacttools()->create($validated);
 
-        return redirect(route('add.create'));
+        return redirect(route('tool.create'));
     }
 
 

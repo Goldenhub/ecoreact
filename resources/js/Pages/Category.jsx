@@ -8,6 +8,7 @@ import { Transition } from '@headlessui/react';
 import { useState, Fragment } from 'react';
 
 export default function Category({ categories, category, tools, date }) {
+    console.log(typeof tools)
     const [isOpen, setIsOpen] = useState(false);
     return (
         <>
@@ -30,6 +31,11 @@ export default function Category({ categories, category, tools, date }) {
                                             <li className='mb-3'>
                                                 <Link href={route('index')} className={route().current('index') ? 'text-[#B4D4FF] hover:text-[#B4D4FF] underline underline-offset-4' : 'hover:text-[#B4D4FF] text-[#86B6F6]'}>
                                                     Latest
+                                                </Link>
+                                            </li>
+                                            <li className='mb-3'>
+                                                <Link href={route('category', 'all')} className={route().current('category', 'all') ? 'text-[#B4D4FF] hover:text-[#B4D4FF] underline underline-offset-4' : 'hover:text-[#B4D4FF] text-[#86B6F6]'}>
+                                                    All
                                                 </Link>
                                             </li>
                                             {categories.filter((category) => category.category.toLowerCase() !== 'latest').map((category) => (
@@ -67,6 +73,11 @@ export default function Category({ categories, category, tools, date }) {
                                                         <li className='mb-3'>
                                                             <Link href={route('index')} className={route().current('index') ? 'text-[#B4D4FF] hover:text-[#B4D4FF] underline underline-offset-4' : 'hover:text-[#B4D4FF] text-[#86B6F6]'}>
                                                                 Latest
+                                                            </Link>
+                                                        </li>
+                                                        <li className='mb-3'>
+                                                            <Link href={route('category', 'all')} className={route().current('category', 'all') ? 'text-[#B4D4FF] hover:text-[#B4D4FF] underline underline-offset-4' : 'hover:text-[#B4D4FF] text-[#86B6F6]'}>
+                                                                All
                                                             </Link>
                                                         </li>
                                                         {categories.filter((category) => category.category.toLowerCase() !== 'latest').map((category) => (

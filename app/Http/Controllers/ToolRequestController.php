@@ -15,7 +15,6 @@ class ToolRequestController extends Controller
      */
     public function index()
     {
-        // dd(ToolRequest::all());
         return Inertia::render('ToolRequests/Index', [
             "requests" => ToolRequest::all()
         ]);
@@ -44,13 +43,13 @@ class ToolRequestController extends Controller
 
         $toolrequest = new ToolRequest();
 
-        $toolrequest->name = $request->input('name');
-        $toolrequest->reason = $request->input('reason');
-        $toolrequest->url = $request->input('url');
+        $toolrequest->name = $validated['name'];
+        $toolrequest->reason = $validated['reason'];
+        $toolrequest->url = $validated['url'];
 
         $toolrequest->save();
 
-        return redirect(route('tool.create'));
+        return redirect(route('index'));
     }
 
     /**

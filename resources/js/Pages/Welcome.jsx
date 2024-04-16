@@ -5,6 +5,7 @@ import Card from '@/Components/Card';
 import Header from '@/Components/Header';
 import Search from '@/Components/Search';
 import Footer from '@/Components/Footer';
+import EmptyCard from '@/Components/EmptyCard';
 
 
 
@@ -32,6 +33,11 @@ export default function Welcome({ categories, tools, date }) {
                                             <li className='mb-3'>
                                                 <Link href={route('index')} className={route().current('index') ? 'text-[#B4D4FF] hover:text-[#B4D4FF] underline underline-offset-4' : 'hover:text-[#B4D4FF] text-[#86B6F6]'}>
                                                     Latest
+                                                </Link>
+                                            </li>
+                                            <li className='mb-3'>
+                                                <Link href={route('category', 'all')} className={route().current('category', 'all') ? 'text-[#B4D4FF] hover:text-[#B4D4FF] underline underline-offset-4' : 'hover:text-[#B4D4FF] text-[#86B6F6]'}>
+                                                    All
                                                 </Link>
                                             </li>
                                             {categories.filter((category) => category.category.toLowerCase() !== 'latest').map((category) => (
@@ -71,6 +77,11 @@ export default function Welcome({ categories, tools, date }) {
                                                                 Latest
                                                             </Link>
                                                         </li>
+                                                        <li className='mb-3'>
+                                                            <Link href={route('category', 'all')} className={route().current('category', 'all') ? 'text-[#B4D4FF] hover:text-[#B4D4FF] underline underline-offset-4' : 'hover:text-[#B4D4FF] text-[#86B6F6]'}>
+                                                                All
+                                                            </Link>
+                                                        </li>
                                                         {categories.filter((category) => category.category.toLowerCase() !== 'latest').map((category) => (
                                                             <li key={category.id} className='mb-3'>
                                                                 <Link href={route('category', `${category.category.toLowerCase().replaceAll(' ', '-')}`)} className={route().current('category', `${category.category.toLowerCase().replaceAll(' ', '-')}`) ? 'text-[#B4D4FF] hover:text-[#B4D4FF] underline underline-offset-4' : 'hover:text-[#B4D4FF] text-[#86B6F6]'}>
@@ -84,9 +95,11 @@ export default function Welcome({ categories, tools, date }) {
                                         </Transition>
                                         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                                             {
-                                                tools.map((tool) => (
-                                                    <Card key={tool.id} img={`https://res.cloudinary.com/dy4jriewl/image/upload/ecoreact/${tool.iconTitle}.png`} loading="lazy" category={tool.category} title={tool.title} slug={tool.slug} />
-                                                ))
+                                                tools.length ?
+                                                    tools.map((tool) => (
+                                                        <Card key={tool.id} img={`https://res.cloudinary.com/dy4jriewl/image/upload/ecoreact/${tool.iconTitle}.png`} loading="lazy" category={tool.category} title={tool.title} slug={tool.slug} />
+                                                    )) :
+                                                    <EmptyCard img='https://res.cloudinary.com/dy4jriewl/image/upload/ecoreact/emptyicon.svg' loading="lazy" category="Latest" title="No tool here" />
                                             }
                                         </div>
                                     </div>

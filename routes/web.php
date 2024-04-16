@@ -45,12 +45,12 @@ Route::get('/tools/{slug}', function (string $slug) {
 })->name('tools');
 
 Route::resource('request', ToolRequestController::class)
-    ->only(['create', 'store', ]);
+    ->only(['create', 'store',]);
 
 Route::resource('request', ToolRequestController::class)
     ->only(['index'])
     ->middleware(['auth', 'verified']);
-    
+
 
 Route::resource('categories', CategoryController::class)
     ->only(['index', 'create', 'store'])
@@ -59,5 +59,13 @@ Route::resource('categories', CategoryController::class)
 Route::resource('tool', ReacttoolController::class)
     ->only(['index', 'create', 'store'])
     ->middleware(['auth', 'verified']);
+
+Route::get('search', function () {
+    $query = 'React'; // <-- Change the query for testing.
+
+    $tools = App\Models\Reacttool::search($query)->get();
+
+    return $tools;
+});
 
 require __DIR__ . '/auth.php';
