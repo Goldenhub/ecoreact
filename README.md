@@ -15,3 +15,4 @@ It is updated regularly and requests are also taken from  the public.
 
 ### Developed by
 [Golden](https://github.com/goldenhub)
+[Twitter](https://twitter.com/chibu_exe)
