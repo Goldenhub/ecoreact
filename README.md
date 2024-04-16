@@ -14,5 +14,5 @@ It is updated regularly and requests are also taken from  the public.
 - Algolia search
 
 ### Developed by
-[Golden](https://github.com/goldenhub)
+[Golden](https://github.com/goldenhub) | 
 [Twitter](https://twitter.com/chibu_exe)
