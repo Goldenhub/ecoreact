@@ -11,6 +11,7 @@ It is updated regularly and requests are also taken from  the public.
 - Inertiajs
 - ReactJS
 - TailwindCSS
+- Algolia search
 
 ### Developed by
 [Golden](https://github.com/goldenhub)
