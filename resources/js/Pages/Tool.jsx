@@ -22,7 +22,7 @@ export default function Tool({ tool, date }) {
                                     <h1 className='text-3xl font-extrabold mb-4 text-[#EEF5FF] text-center md:text-start'>{tool.title}</h1>
                                     <p className='text-[#EEF5FF]/80 mb-5 text-md text-center md:text-start'>{tool.description}</p>
                                     <div className='mt-10 flex items-start'>
-                                        <img className='object-scale-down md:object-contain md:h-96 md:w-full' src={`https://res.cloudinary.com/dy4jriewl/image/upload/ecoreact/screenshot-${tool.slug}`} alt={tool.title} />
+                                        <img className='object-scale-down md:object-contain md:h-96' src={`https://res.cloudinary.com/dy4jriewl/image/upload/ecoreact/screenshot-${tool.slug}`} alt={tool.title} />
                                     </div>
                                 </div>
                             </div>

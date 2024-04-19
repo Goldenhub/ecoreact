@@ -44,6 +44,7 @@ export default function Search() {
                         input: 'placeholder:text-slate-400 block bg-white w-full rounded-md py-2 pl-9 pr-3 h-[56px] shadow-[0_2px_10px_0_rgba(23,107,135,.3)] border-none focus:outline-none sm:text-8',
                         submit: 'hidden',
                         reset: 'hidden',
+                        loadingIndicator: 'hidden',
                         root: 'relative block w-full py-0 px-2 md:w-1/2',
                     }}
                     placeholder="Search for a react tool"
